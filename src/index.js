@@ -38,21 +38,11 @@ function onSubmitClick(event) {
     });
     refs.loadMoreBtn.classList.remove('is-hidden');
     isEndOfImg(page, totalHits);
-    page += 1;
-    // scrol();
+    page += 1;   
 };
 
 function onMoreLoadBtnClick() {
     getImg(searchQuery, page).then(markup);
     isEndOfImg(page, totalHits);
-    page += 1;
-    // scrol();
+    page += 1;   
 }
-
-// const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
-// console.log(document.querySelector('.gallery').firstElementChild);
-
-// window.scrollBy({
-//   top: cardHeight * 2,
-//   behavior: 'smooth',
-// });
