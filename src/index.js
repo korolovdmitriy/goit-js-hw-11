@@ -50,7 +50,7 @@ function markup({ data }) {
     const galleryMarkup = imgArray.map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) =>
   `<div class="photo-card">
   <a class="gallery__item" href="${largeImageURL}">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="354" heigth="200"/></a>
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="354" height="225"/></a>
   <div class="info">
     <p class="info-item">
       <b>Likes </br><span class='text'>${likes}</span></b>
