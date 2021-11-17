@@ -26,23 +26,27 @@ function onSubmitClick(event) {
 
     if (searchQuery === '') { return Notify.failure('Please enter your search data.') };
     event.target.reset();
-    getImg(searchQuery, page).then(rev => {
-        const imgArray = rev.data.hits;
+    getImg(searchQuery, page).then(res => {
+        const imgArray = res.data.hits;
+        totalHits = res.data.totalHits;
+
         if (imgArray.length === 0) {
         refs.loadMoreBtn.classList.add('is-hidden');
         return Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         }
-        totalHits = rev.data.totalHits;
+        
         Notify.success(`Hooray! We found ${totalHits} images.`);
-        markup(rev);
-    });
-    refs.loadMoreBtn.classList.remove('is-hidden');
-    isEndOfImg(page, totalHits);
-    page += 1;   
+        markup(res);
+        refs.loadMoreBtn.classList.remove('is-hidden');
+        isEndOfImg(page, totalHits);
+        page += 1;
+    });    
 };
 
 function onMoreLoadBtnClick() {
-    getImg(searchQuery, page).then(markup);
-    isEndOfImg(page, totalHits);
-    page += 1;   
+    getImg(searchQuery, page).then(res => {
+        markup(res);
+        isEndOfImg(page, totalHits);
+        page += 1;   
+    });   
 }
