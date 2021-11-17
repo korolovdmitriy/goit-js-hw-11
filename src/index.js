@@ -12,7 +12,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const refs = getRefs();
 let page = 1;
 let searchQuery = '';
-let totalHits = 0;
+let totalHits;
 
 refs.searchForm.addEventListener('submit', onSubmitClick);
 refs.loadMoreBtn.addEventListener('click', onMoreLoadBtnClick);
