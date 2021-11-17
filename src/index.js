@@ -1,13 +1,12 @@
 import './sass/main.scss';
-import { getRefs } from './js/getRefs';
-import { getSearch } from './js/getSearch';
-import { Notify } from 'notiflix';
-import axios from "axios";
-import { getImg } from './js/getImg';
-import { isEndOfImg } from './js/isEndOfImg';
 
+import { Notify } from 'notiflix';
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
+import { getRefs } from './js/getRefs';
+import { getImg } from './js/getImg';
+import { isEndOfImg } from './js/isEndOfImg';
 
 const refs = getRefs();
 let page = 1;
@@ -31,8 +30,7 @@ function onSubmitClick(event) {
     getImg(searchQuery, page).then(markup);
     refs.loadMoreBtn.classList.remove('is-hidden');
     isEndOfImg(page, totalHits);
-    page += 1;
-    
+    page += 1;    
 };
 
 function onMoreLoadBtnClick() {
