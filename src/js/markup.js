@@ -35,4 +35,5 @@ let gallery = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
     captionPosition: 'botton',
 });
+  gallery.refresh();
 }
